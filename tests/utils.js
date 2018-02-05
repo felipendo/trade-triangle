@@ -15,12 +15,11 @@ const { triangleSidesValid } = require(LIB_PATH).triangle
  * a number 'n' of 3-length-samples such that for
  * each returned sample [a,b,c]:
  *   -> testFn(a, b, c) is true.
- * 
+ *
  * Note: the generated samples will be always valid.
  * Check: 'triangleSidesValid'.
  */
-function* triangleLensGen (testFn, n) {
-
+function * triangleLensGen (testFn, n) {
     const MAX_VALUE = 500
     const MIN_VALUE = 1
     const RANGE = MAX_VALUE - MIN_VALUE
@@ -34,9 +33,9 @@ function* triangleLensGen (testFn, n) {
         const a = gen()
         const b = gen()
         const c = gen()
-        if (triangleSidesValid(a,b,c) && testFn(a,b,c)) {
+        if (triangleSidesValid(a, b, c) && testFn(a, b, c)) {
             n--
-            yield [a,b,c]
+            yield [a, b, c]
         }
     }
 }
@@ -51,12 +50,11 @@ function genToList (gen) {
     return items
 }
 
-function assertThrows(fn, CustomError) {
-
+function assertThrows (fn, CustomError) {
     try {
         fn()
     } catch (e) {
-        if (e instanceof CustomError){
+        if (e instanceof CustomError) {
             return
         }
     }

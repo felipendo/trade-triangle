@@ -1,4 +1,4 @@
-/* global LIB_PATH */
+/* global LIB_PATH, describe, it */
 
 const assert = require('assert')
 const { triangle } = require(LIB_PATH)
@@ -9,14 +9,14 @@ const { getTypeWithLengths, TRIANGLE_TYPES, exceptions } = triangle
 const { InvalidArgNumber, InvalidType } = exceptions
 
 const N_SAMPLES = 3
-const scaleneGen = triangleLensGen((a,b,c) => a !== b && b !== c, N_SAMPLES)
-const equilateralGen = triangleLensGen((a,b,c) => a === b && b === c, N_SAMPLES)
-const isoscelesGen = triangleLensGen((a,b,c) => a == b && b !== c, N_SAMPLES)
+const scaleneGen = triangleLensGen((a, b, c) => a !== b && b !== c, N_SAMPLES)
+const equilateralGen = triangleLensGen((a, b, c) => a === b && b === c, N_SAMPLES)
+const isoscelesGen = triangleLensGen((a, b, c) => a === b && b !== c, N_SAMPLES)
 
-/* 
+/*
     Auxiliar assertion.
     testSet shape: {
-        lengths: [lenght1, length2, length3], 
+        lengths: [lenght1, length2, length3],
         expected: <TRIANGLE_TYPES>
     }
 */
@@ -61,13 +61,11 @@ const invalidTestSets = validTestSets.map(t => {
 // Tests
 
 describe('Test "triangle" module', function () {
-
     describe('Test "getTypeWithLengths"', function () {
-
         assertTestSets(validTestSets)
 
         assertTestSets(invalidTestSets)
-    
+
         it('should throw "InvalidType" if any arg type is != "number"', function () {
             assertThrows(getTypeWithLengths.bind(null, 's', 1, 'b'), InvalidType)
         })

@@ -9,6 +9,7 @@ const { getTypeWithLengths, TRIANGLE_TYPES, exceptions } = triangle
 const { InvalidArgNumber, InvalidType } = exceptions
 
 const N_SAMPLES = 3
+// Sample generators: one for each triangle type
 const scaleneGen = triangleLensGen((a, b, c) => a !== b && b !== c, N_SAMPLES)
 const equilateralGen = triangleLensGen((a, b, c) => a === b && b === c, N_SAMPLES)
 const isoscelesGen = triangleLensGen((a, b, c) => a === b && b !== c, N_SAMPLES)
@@ -49,7 +50,7 @@ const isosSets = genToList(isoscelesGen)
 
 const validTestSets = scalSets.concat(equiSets, isosSets)
 
-// make testset lenghts invalid, adding the
+// Make testset lenghts invalid, adding the
 // two other sides length - check the inequality
 // theorem, it's proven to work!
 const invalidTestSets = validTestSets.map(t => {

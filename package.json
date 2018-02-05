@@ -1,8 +1,8 @@
 {
-  "name": "tradeshift",
+  "name": "trade-triangle",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "testa": "mocha ./tests/index.js ",
     "test": "mocha ./tests/index.js --inspect-brk",

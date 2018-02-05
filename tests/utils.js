@@ -4,7 +4,7 @@
  Test utilities.
 
  Note: as this file grows it should be split into another
- file, and placed in another folder with its tests.
+ files, and placed into other folder with its tests.
 */
 
 const assert = require('assert')

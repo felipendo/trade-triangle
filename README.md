@@ -3,7 +3,9 @@ Library to help with triangle calculations
 
 # Use
 `npm install felipendo/trade-triangle`
+
 In your code:
+
 ```js
 const { triangle } = require('trade-triangle')
 
